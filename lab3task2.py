@@ -38,7 +38,7 @@ def main():
 	while True:
 		debug('Sending ACK...')
 		ser.write(ack.encode('utf-8'))
-		time.sleep(1)
+		# time.sleep(1)
 		sensors = [datetime.now()]
 		debug(ser.out_waiting)
 		running_sum = 0
