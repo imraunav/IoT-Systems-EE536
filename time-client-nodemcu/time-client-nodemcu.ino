@@ -8,7 +8,7 @@
 const char* ssid = STASSID;
 const char* password = STAPSK;
 
-const char* host = "raspberrypi.local"; // using hostname to connect
+const char* host = "raunav-rpi.local"; // using hostname to connect
 const uint16_t port = 2000;
 
 

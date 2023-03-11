@@ -4,7 +4,7 @@ from datetime import datetime
 
 debug_flag = True
 
-HOST = "raspberrypi.local"
+HOST = "raunav-rpi.local"
 PORT = 2000
 
 def main():
