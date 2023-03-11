@@ -3,16 +3,12 @@ echo-client.py
 author-Raunav Ghosh
 reference - https://realpython.com/python-sockets/
 '''
-
+from debug import debug
 import socket
 
 debug_flag = False
-HOST = "127.0.0.1"
+HOST = "127.0.0.1" # loopback 
 PORT = 2000
-
-def debug(message):
-    if debug_flag == True:
-        print(f'DEBUG: {message}')
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
