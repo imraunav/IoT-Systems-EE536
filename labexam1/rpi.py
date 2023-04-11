@@ -58,7 +58,7 @@ def main():
 		# alt_sensor.write(alt_req.encode("utf-8"))
 		alt_reading = alt_sensor.readline().strip().decode("utf-8")
 		alt_indicator.write(alt_reading.encode("utf-8"))
-		with open(alti_file, mode="w") as file:
+		with open(alti_file, mode="a") as file:
 			writer = csv.writer(file)
 			writer.writerow([alt_reading])
 			debug('File updated')
@@ -73,9 +73,9 @@ def main():
 		with fuel_indicator:
 			fuel_indicator.sendall(fuel_reading.encode("utf-8"))
 
-		with open(fuel_file, mode="w") as file:
+		with open(fuel_file, mode="a") as file:
 			writer = csv.writer(file)
-			writer.writerow([fuel_indicator])
+			writer.writerow([fuel_reading])
 			debug("File updated")
 
 if __name__ == "__main__":
