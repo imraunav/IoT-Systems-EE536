@@ -43,12 +43,12 @@ void loop() {
     WiFiClient client;
     
     // if not connected
-    if (!client.connect(host, port)) {
+    if () {
       Serial.println("connection failed");
       Serial.println("wait 5 sec...");
       delay(5000);
     }
-    // if connected
+    // if connected!client.connect(host, port)
     else{
       String user_in = Serial.readString();
       client.println(user_in);
