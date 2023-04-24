@@ -4,7 +4,7 @@ https://wiki.python.org/moin/UdpCommunication
 '''
 import socket
 
-UDP_IP = "raunav-rpi.local"
+UDP_IP = "10.7.8.116"
 UDP_PORT = 5005
 sock = socket.socket(socket.AF_INET, # Internet
                     socket.SOCK_DGRAM) # UDP
