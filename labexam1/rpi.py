@@ -4,7 +4,7 @@ import os
 import time 
 import socket
 
-debug_flag = False # debug flag
+debug_flag = True # debug flag
 HOST = "raunav-rpi.local"
 PORT = 2000
 PORT_INDICATOR = 3000
@@ -64,11 +64,15 @@ def main():
 			debug('File updated')
 		
 		#intercting with NodeMCU
+		debug("Listening for sensor Node MCU")
 		s.listen() # listening untill hears 
+		debug("Heard")
 		fuel_sensor, addr = s.accept() # when connection is established
 		with fuel_sensor:
 			fuel_reading = fuel_sensor.recv(1024).strip().decode("utf-8")
+		debug("Listening for indicator Node MCU")
 		p.listen() # listening untill heards 
+		debug("Heard")
 		fuel_indicator, addr = p.accept()
 		with fuel_indicator:
 			fuel_indicator.sendall(fuel_reading.encode("utf-8"))
