@@ -16,10 +16,17 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  for(int i=0;i<400;i+=5)
+  // flight on ground
+  for(int i=0; i<3; i++){
+    Serial.println(0);
+    delay(500);
+  }
+  // flight begins
+  for(int i=0;i<=400;i++)
   {
     float alt=altitude(i);
     Serial.println(alt);
     delay(100);
   }
+  
 }

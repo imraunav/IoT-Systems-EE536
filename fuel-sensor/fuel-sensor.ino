@@ -4,18 +4,20 @@
 #define LED_BUILTIN D0
 
 #ifndef STASSID
-#define STASSID "IITMandi_WiFi"
-#define STAPSK  "wifi@iit"
+#define STASSID "Raunav's 7x"
+#define STAPSK  "s64j9d5u"
 #endif
 
-#define IP_ADDRESS "10.7.8.116"
-#define PORT1 8888
-#define PORT2 8889
+#define IP_ADDRESS "192.168.27.186" //RPi's address
+#define PORT1 8888 //fuel 1
+#define PORT2 8889 //fuel 2
 
-unsigned int localPort = 8888;      // local port to listen on
+// unsigned int localPort = 8888;      // local port to listen on
 
+WiFiUDP Udp0; // Receive refuel
 WiFiUDP Udp1; // Broadcast fuel1
 WiFiUDP Udp2; // Broadcast fuel2
+char packetBuffer[UDP_TX_PACKET_MAX_SIZE + 1];
 
 
 // This is an error handling flag
@@ -67,7 +69,8 @@ void loop() {
   //float message = Serial.parseFloat();
   // char buffer[30];
   // message.toCharArray(buffer, message.length());
-  for(int i=0;i<=400;i+=5){
+  for(int i=0;i<=400;i++){
+    
     float message1 = petrol1(i);
     float message2 = petrol2(i);
 
@@ -81,7 +84,7 @@ void loop() {
     Udp2.println(message2);
     Udp2.endPacket();
 
-    delay(500);
+    delay(20);
   }
     // delay(1000);
     // stream s;

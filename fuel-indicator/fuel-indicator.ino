@@ -8,12 +8,12 @@ unsigned long currentMillis = millis();
 const long interval = 50;
 
 #ifndef STASSID
-#define STASSID "IITMandi_WiFi"
-#define STAPSK  "wifi@iit"
+#define STASSID "Raunav's 7x"
+#define STAPSK  "s64j9d5u"
 #endif
 
 // #define IP_ADDRESS "raunav-rpi.local"
-String MY_HOSTNAME = "fuel-indicator";
+// String MY_HOSTNAME = "fuel-indicator";
 #define PORT 8885
 
 
@@ -25,7 +25,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
-  WiFi.hostname(MY_HOSTNAME.c_str());
+  // WiFi.hostname(MY_HOSTNAME.c_str());
   WiFi.begin(STASSID, STAPSK);
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print('.');
